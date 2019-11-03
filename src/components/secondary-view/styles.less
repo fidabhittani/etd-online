@@ -1,0 +1,14 @@
+@import "~styles/responsive.less";
+
+.secondary-view {
+  background: #fff;
+  padding: 0 20em;
+  min-height: calc(100vh - 135px);
+  transition: all 0.2s ease-in-out;
+  .media-phone({padding: 0 0.5em});
+  .media-tablet({padding: 0 3em;});
+  .media-gt-tablet({padding: 0 5em});
+
+  .media-desktop({padding: 0 10em});
+  .media-desktop-lg({padding: 0 20em});
+}
