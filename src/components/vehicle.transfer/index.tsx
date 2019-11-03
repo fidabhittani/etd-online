@@ -71,7 +71,9 @@ const VehicleTransfer = () => {
                   </Col>
                   <Col sm={24} md={6}>
                     {slotsLoading && slotsLoading.status ? (
-                      <Spin tip="Loading Time Slots" />
+                      <Spin tip="Loading Time Slots">
+                        <UpdateSlotForm />
+                      </Spin>
                     ) : (
                       <UpdateSlotForm />
                     )}

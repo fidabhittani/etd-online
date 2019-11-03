@@ -157,7 +157,7 @@ export const transferFormValidationRules = {
   representativeFName: []
 };
 
-const activateInitValues = true;
+const activateInitValues = false;
 
 export const initialValues = {
   ownerType: activateInitValues ? "INDIVIDUAL" : null,
