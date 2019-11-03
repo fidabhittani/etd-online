@@ -40,7 +40,7 @@ const MainLayout = ({
             style={{ lineHeight: "64px" }}
           >
             <Menu.Item key="vehicle-transfer">
-              <Link to="/vehicle-transfer">Vehicle Transfer</Link>
+              <Link to="/vehicle-transfer">View/ Update Existing Application</Link>
             </Menu.Item>
           </Menu>
         </Header>

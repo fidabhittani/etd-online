@@ -64,7 +64,7 @@ const VehicleTransfer = () => {
                       //message="Application Save Successfully" 
                       //message={'Application Save Successfully, Computer No ${transfer.window} '}
                       message={`YOUR APPLICATION'S COMPUTER NUMBER IS: ${transfer.id}`}
-                      description={`YOUR APOINTMENT TIME IS ${moment(
+                      description={`YOUR APOINTMENT TIME IS ON ${moment(
                         transfer.apTime
                       ).format("LLLL")} at ${transfer.window &&
                         transfer.window.toUpperCase()}
