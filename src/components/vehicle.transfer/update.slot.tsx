@@ -48,12 +48,12 @@ const UpdateSlotForm = (props: any) => {
   // Only show error after a field is touched.
   return (
     <Form onSubmit={handleSubmit} style={{ width: "100%" }}>
-      <Form.Item label={"Time Slots"}>
+      <Form.Item label={"Available Time Slots"}>
         {getFieldDecorator("timeSlot", {
-          rules: [{ required: true, message: "Please Select timeSlot!" }]
+          rules: [{ required: true, message: "Select appointment time slot!" }]
         })(
           <Select
-            placeholder="Select appointment slot"
+            placeholder="Select appointment time slot"
             style={{ width: "100%", minWidth: "200px" }}
             loading={(getSlotLoading || {}).status}
             showSearch
@@ -68,7 +68,7 @@ const UpdateSlotForm = (props: any) => {
           htmlType="submit"
           loading={(updateSlotLoading || {}).status}
         >
-          Update
+          Update Appiontment Time
         </Button>
       </Form.Item>
     </Form>

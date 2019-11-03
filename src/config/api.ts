@@ -5,7 +5,7 @@
 export const ApiMethods = {
   GetVehiclePort: "get_veh_prt.php",
   SaveVehiclePort: "index_veh_prt.php",
-  GetTimeSlots: "getTimeSlots.php",
+  GetTimeSlots: "getTimeSlots_prt.php",
   UpdateTimeSlot: "updateTimeSlot.php"
 };
 

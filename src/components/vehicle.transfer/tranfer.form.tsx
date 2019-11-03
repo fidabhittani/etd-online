@@ -59,7 +59,8 @@ const TransferForm = (props: any) => {
       <Form {...formItemLayout} onSubmit={handleSubmit}>
         <Card
           size="small"
-          title="Owner Information"
+          //title="TRANSFREE INFORMATION (PERSON/COMPANY, WHOSE NAME SUBJECTED VEHICLE IS GOING TO BE TRANSFERED)"
+          title="TRANSFREE INFORMATION"
           headStyle={{ background: "#fafafa" }}
         >
           <Row gutter={24}>
@@ -312,7 +313,7 @@ const TransferForm = (props: any) => {
             htmlType="submit"
             className="login-form-button"
           >
-            Submit
+            Save
           </Button>
           <br />
         </Form.Item>

@@ -28,7 +28,7 @@ const MainLayout = ({
       <Affix>
         <Header className="header">
           <div className="app-logo">
-            NEW / IMPORTED VEHICLE TRANSFER [TRIAL VERSION]
+            POST REGISTRATION VEHICLE APPLICATION (CHANGE OF OWNERSHIP) [TRIAL VERSION]
           </div>
 
           <Menu
@@ -54,7 +54,7 @@ const MainLayout = ({
         </Content>
 
         <Footer style={{ textAlign: "center" }}>
-          Excise Taxation ©{new Date().getFullYear()}
+          Islamabad Excise & Taxation Department ©{new Date().getFullYear()}
         </Footer>
       </Layout>
     </Layout>

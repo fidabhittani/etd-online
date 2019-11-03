@@ -24,8 +24,8 @@ const VehicleTransfer = () => {
   return (
     <SecondaryView>
       <PageHeader
-        title="Vehicle Transfer"
-        subTitle="Use the below form to process vehicle transfer"
+        title="Change of Ownership"
+        subTitle=""  //Use the below form to process vehicle transfer
       />
       <div className="vehicle-transfer">
         <CheckVehicle />
@@ -36,7 +36,7 @@ const VehicleTransfer = () => {
             <Empty
               description={
                 <Alert
-                  message={`NO Vehicle Found with the provided registration no `}
+                  message={`Invalid vehicle registration no, Please contact ETO office if your vehilce data is incorrect.`}
                   type="warning"
                 />
               }
@@ -61,19 +61,21 @@ const VehicleTransfer = () => {
                   <Col sm={24} md={24}>
                     <Alert
                       showIcon
-                      message="Appointment Reserved"
-                      description={`Your appointment is on ${moment(
+                      //message="Application Save Successfully" 
+                      //message={'Application Save Successfully, Computer No ${transfer.window} '}
+                      message={`YOUR APPLICATION'S COMPUTER NUMBER IS: ${transfer.id}`}
+                      description={`YOUR APOINTMENT TIME IS ${moment(
                         transfer.apTime
                       ).format("LLLL")} at ${transfer.window &&
-                        transfer.window.toUpperCase()}, you can change the appointment time below`}
+                        transfer.window.toUpperCase()}
+                        \nPLEASE VISIT E.T.D ISLAMABAD OFFICE ALONG WITH ORIGINAL DOCUMENTS.
+                        \nCHANGE OF OWNERSHIP IS SUBJECT TO CURRENT OWNER'S BIOMETRIC VERIFICATION FROM NADRA.`}
                       type="info"
                     />
                   </Col>
                   <Col sm={24} md={6}>
                     {slotsLoading && slotsLoading.status ? (
-                      <Spin tip="Loading Time Slots">
-                        <UpdateSlotForm />
-                      </Spin>
+                      <Spin tip="Loading Time Slots" />
                     ) : (
                       <UpdateSlotForm />
                     )}

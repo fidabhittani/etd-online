@@ -354,13 +354,13 @@ export const districts = [
 
 export const vehicleColumns = [
   {
-    title: "Reg No",
+    title: "Registration No",
     dataIndex: "registrationNo",
     key: "registrationNo",
     ellipsis: true
   },
   {
-    title: "Reg Date",
+    title: "Registration Date",
     dataIndex: "registrationDate",
     key: "registrationDate",
     ellipsis: true
@@ -378,13 +378,13 @@ export const vehicleColumns = [
     ellipsis: true
   },
   {
-    title: "Owner CNIC",
+    title: "Current Owner CNIC",
     dataIndex: "cnic",
     key: "cnic",
     ellipsis: true
   },
   {
-    title: "Owner Name",
+    title: "Current Owner Name",
     dataIndex: "ownerName",
     key: "ownerName",
     ellipsis: true

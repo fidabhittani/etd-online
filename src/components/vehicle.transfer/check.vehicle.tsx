@@ -58,7 +58,7 @@ const CheckVehicle = (props: any): any => {
               block
               className="login-form-button"
             >
-              Get Vehicle
+              Submit
             </Button>
           </Form.Item>
         </Col>

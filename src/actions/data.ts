@@ -139,7 +139,7 @@ export const updateTimeSlot = ({
     message = {
       ...message,
       type: "success",
-      devMessage: `Your Slot [${apTime}] has been successfully reserved`
+      devMessage: `New appiontment time slot [${apTime}] has been successfully reserved`
     };
     dispatch(updateTransferSlot({ apTime: apTime }));
   }
