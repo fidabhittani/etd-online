@@ -1,7 +1,7 @@
 import React from "react";
 import SecondaryView from "components/secondary-view";
 import TransferForm from "./tranfer.form";
-import { PageHeader, Alert, Divider, Table, Row, Col, Spin } from "antd";
+import { PageHeader, Descriptions, Alert, Divider, Row, Col, Spin } from "antd";
 import { vehicleColumns } from "utils/lookups";
 import CheckVehicle from "./check.vehicle";
 import { useSelector } from "react-redux";
@@ -21,11 +21,22 @@ const VehicleTransfer = () => {
   const isVehicleSearchTried =
     vehicleLoading && vehicleLoading.status === false;
 
+  let apptimeMessage =
+    transfer.apTime &&
+    `YOUR APOINTMENT TIME IS ON ${moment(transfer.apTime).format("LLLL")} at ${
+      transfer.window && transfer.window.toUpperCase()
+    }`;
+
+  apptimeMessage = `${
+    apptimeMessage || ""
+  } \nPLEASE VISIT E.T.D ISLAMABAD OFFICE ALONG WITH ORIGINAL DOCUMENTS.
+  \nCHANGE OF OWNERSHIP IS SUBJECT TO CURRENT OWNER'S BIOMETRIC VERIFICATION FROM NADRA.`;
+
   return (
     <SecondaryView>
       <PageHeader
         title="Change of Ownership"
-        subTitle=""  //Use the below form to process vehicle transfer
+        subTitle="" //Use the below form to process vehicle transfer
       />
       <div className="vehicle-transfer">
         <CheckVehicle />
@@ -47,39 +58,37 @@ const VehicleTransfer = () => {
 
         {isVehicle && (
           <React.Fragment>
-            <Table
-              dataSource={[{ ...vehicle, key: "vehicle-info-1" }]}
-              columns={vehicleColumns}
-              size={"middle"}
-              pagination={false}
-              bordered={true}
-            />
+            <Descriptions bordered>
+              {vehicleColumns.map((vc) => {
+                return (
+                  <Descriptions.Item label={vc.title}>
+                    {vehicle[vc.dataIndex]}
+                  </Descriptions.Item>
+                );
+              })}
+            </Descriptions>
+
             <br />
-            {transfer.id && transfer.apTime ? (
+            {transfer.id ? (
               <React.Fragment>
                 <Row gutter={24}>
                   <Col sm={24} md={24}>
                     <Alert
                       showIcon
-                      //message="Application Save Successfully" 
-                      //message={'Application Save Successfully, Computer No ${transfer.window} '}
                       message={`YOUR APPLICATION'S COMPUTER NUMBER IS: ${transfer.id}`}
-                      description={`YOUR APOINTMENT TIME IS ON ${moment(
-                        transfer.apTime
-                      ).format("LLLL")} at ${transfer.window &&
-                        transfer.window.toUpperCase()}
-                        \nPLEASE VISIT E.T.D ISLAMABAD OFFICE ALONG WITH ORIGINAL DOCUMENTS.
-                        \nCHANGE OF OWNERSHIP IS SUBJECT TO CURRENT OWNER'S BIOMETRIC VERIFICATION FROM NADRA.`}
+                      description={`${apptimeMessage}`}
                       type="info"
                     />
                   </Col>
-                  <Col sm={24} md={6}>
-                    {slotsLoading && slotsLoading.status ? (
-                      <Spin tip="Loading Time Slots" />
-                    ) : (
-                      <UpdateSlotForm />
-                    )}
-                  </Col>
+                  {transfer.apTime && (
+                    <Col sm={24} md={6}>
+                      {slotsLoading && slotsLoading.status ? (
+                        <Spin tip="Loading Time Slots" />
+                      ) : (
+                        <UpdateSlotForm />
+                      )}
+                    </Col>
+                  )}
                 </Row>
               </React.Fragment>
             ) : (

@@ -10,7 +10,7 @@ const UpdateSlotForm = (props: any) => {
   );
   const {
     updateSlot: updateSlotLoading = {},
-    getSlots: getSlotLoading = {}
+    getSlots: getSlotLoading = {},
   } = useSelector(({ app }: any) => app.loading);
   const dispatch = useDispatch();
   const handleSubmit = (e: any) => {
@@ -30,7 +30,7 @@ const UpdateSlotForm = (props: any) => {
             computerId: transfer.id,
             timeSlot: Number(timeSlot),
             chasis: vehicle.chasisNo,
-            ...slectedSlot
+            ...slectedSlot,
           })
         );
         console.log("Received values of form: ", values);
@@ -41,7 +41,7 @@ const UpdateSlotForm = (props: any) => {
   const { getFieldDecorator } = props.form;
   const slotsOptions = (timeslots || []).map((timeSlot: any) => (
     <Option key={timeSlot.id} value={timeSlot.id}>
-      {timeSlot.time}
+      {timeSlot.time}-{timeSlot.window}
     </Option>
   ));
 
@@ -50,11 +50,11 @@ const UpdateSlotForm = (props: any) => {
     <Form onSubmit={handleSubmit} style={{ width: "100%" }}>
       <Form.Item label={"Available Time Slots"}>
         {getFieldDecorator("timeSlot", {
-          rules: [{ required: true, message: "Select appointment time slot!" }]
+          rules: [{ required: true, message: "Select appointment time slot!" }],
         })(
           <Select
             placeholder="Select appointment time slot"
-            style={{ width: "100%", minWidth: "200px" }}
+            style={{ width: "100%", minWidth: "400px" }}
             loading={(getSlotLoading || {}).status}
             showSearch
           >

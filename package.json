@@ -65,5 +65,5 @@
     "react-router-dom": "^5.0.1",
     "toasted-notes": "^3.0.0"
   },
-  "proxy": "http://localhost:85"
+  "proxy": "http://58.65.128.82:8081"
 }

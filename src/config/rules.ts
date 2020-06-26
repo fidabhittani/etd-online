@@ -6,107 +6,107 @@ const required: boolean = true;
 
 const fieldsMeta = {
   ownerType: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   ntn: {
-    label: "NTN"
+    label: "NTN",
   },
   cnic: {
-    label: "CNIC"
+    label: "CNIC",
   },
   passport: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   ownerName: {
-    label: "Owner Name"
+    label: "Owner Name",
   },
   fatherHusbandName: {
-    label: "Father Husband Name"
+    label: "Father Husband Name",
   },
   contactNumber: {
-    label: "Contact No"
+    label: "Contact No",
   },
   otherContactNumber: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   presentAddress: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   presentAddressCity: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   presentAddressDistrict: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   permanentAddress: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   permanentAddressCity: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   permanentAddressDistrict: {
-    label: "Permanent Address District"
+    label: "Permanent Address District",
   },
   taxpayerType: {
-    label: "Owner Type"
+    label: "Owner Type",
   },
   vehicleHirePurchaseAgreement: {
-    label: "VehicleHire Purchase Agreement"
+    label: "VehicleHire Purchase Agreement",
   },
   vehicleHirePurchaseParty: {
-    label: "Vehicle HirePurchase Party"
+    label: "Vehicle HirePurchase Party",
   },
   registrationNo: {
-    label: "Registration No"
+    label: "Registration No",
   },
   registrationDate: {
-    label: "Registration Date"
+    label: "Registration Date",
   },
   representativeCnic: {
-    label: "Representative Cnic"
+    label: "Representative Cnic",
   },
   representativeMobile: {
-    label: "Representative Mobile"
+    label: "Representative Mobile",
   },
   representativeName: {
-    label: "Representative Name"
+    label: "Representative Name",
   },
   representativeFName: {
-    label: "Representative F Name"
-  }
+    label: "Representative F Name",
+  },
 };
 
 export const transferFormValidationRules = {
   ownerType: [
     {
       required,
-      message: "Owner Type is required"
-    }
+      message: "Owner Type is required",
+    },
   ],
   ntn: [],
   cnic: [
     {
       required,
-      message: "CNIC is Required"
+      message: "CNIC is Required",
     },
     {
       len: 13,
-      message: `${fieldsMeta["cnic"].label} should be exactly 13 characters`
-    }
+      message: `${fieldsMeta["cnic"].label} should be exactly 13 characters`,
+    },
   ],
   passport: [],
   ownerName: [
     {
       required,
-      message: "Name is required"
-    }
+      message: "Name is required",
+    },
   ],
   fatherHusbandName: [],
   contactNumber: [
     {
       required,
-      message: "Contact No is required"
-    }
+      message: "Contact No is required",
+    },
   ],
   otherContactNumber: [],
   presentAddress: [],
@@ -117,47 +117,47 @@ export const transferFormValidationRules = {
   permanentAddressDistrict: [
     {
       required,
-      message: `District is Required`
-    }
+      message: `District is Required`,
+    },
   ],
   taxpayerType: [
     {
       required,
-      message: `Tax Payer Category is Required`
-    }
+      message: `Tax Payer Category is Required`,
+    },
   ],
   vehicleHirePurchaseAgreement: [],
   vehicleHirePurchaseParty: [],
   registrationNo: [
     {
       required: true,
-      message: "Please input your registration no!"
-    }
+      message: "Please input your registration no!",
+    },
   ],
   registrationDate: [
     {
       type: "object",
       required: true,
-      message: "Please select date!"
-    }
+      message: "Please select date!",
+    },
   ],
   representativeCnic: [
     {
       required,
-      message: "Rep CNIC is Required"
-    }
+      message: "Rep CNIC is Required",
+    },
   ],
   representativeMobile: [],
   representativeName: [
     {
       required,
-      message: "Rep Name is Required"
-    }
+      message: "Rep Name is Required",
+    },
   ],
-  representativeFName: []
+  representativeFName: [],
 };
 
-const activateInitValues = true;
+const activateInitValues = false;
 
 export const initialValues = {
   ownerType: activateInitValues ? "INDIVIDUAL" : null,
@@ -177,5 +177,5 @@ export const initialValues = {
   representativeCnic: activateInitValues ? "1234567890987" : null,
   representativeMobile: activateInitValues ? "3210323" : null,
   representativeName: activateInitValues ? "Ali" : null,
-  representativeFName: activateInitValues ? "Khan" : null
+  representativeFName: activateInitValues ? "Khan" : null,
 };

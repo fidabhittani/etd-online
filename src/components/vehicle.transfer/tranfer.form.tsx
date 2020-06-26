@@ -17,7 +17,7 @@ import {
   Switch,
   Button,
   Card,
-  Spin
+  Spin,
 } from "antd";
 
 const { Option } = Select;
@@ -41,7 +41,7 @@ const TransferForm = (props: any) => {
             registrationNo,
             registrationDate: moment(registrationDate).format("MM/DD/YYYY"),
             vehicleHirePurchaseAgreement:
-              vehicleHirePurchaseAgreement === true ? "YES" : "NO"
+              vehicleHirePurchaseAgreement === true ? "YES" : "NO",
           })
         );
       }
@@ -67,7 +67,7 @@ const TransferForm = (props: any) => {
             <Col span={12} xs={24} sm={24} md={12}>
               <Form.Item label="Owner Type" hasFeedback>
                 {getFieldDecorator("ownerType", {
-                  rules: transferFormValidationRules["ownerType"]
+                  rules: transferFormValidationRules["ownerType"],
                 })(
                   <Select placeholder="Select Owner type">
                     <Option value="INDIVIDUAL">INDIVIDUAL</Option>
@@ -87,7 +87,7 @@ const TransferForm = (props: any) => {
               >
                 {getFieldDecorator("ntn", {
                   rules: transferFormValidationRules["ntn"],
-                  initialValue: initialValues["ntn"]
+                  initialValue: initialValues["ntn"],
                 })(<Input placeholder="National Tax Number" allowClear />)}
               </Form.Item>
 
@@ -105,27 +105,27 @@ const TransferForm = (props: any) => {
                 {getFieldDecorator("cnic", {
                   rules: transferFormValidationRules["cnic"],
                   preserve: true,
-                  initialValue: vehicle.cnic || initialValues["cnic"]
+                  initialValue: initialValues["cnic"],
                 })(<Input placeholder={"i-e 3740616435939"} />)}
               </Form.Item>
               <Form.Item label={"Passport No."} hasFeedback>
                 {getFieldDecorator("passport", {
                   initialValue: initialValues["passport"],
-                  rules: transferFormValidationRules["passport"]
+                  rules: transferFormValidationRules["passport"],
                 })(<Input placeholder={"Your Passport"} />)}
               </Form.Item>
 
               <Form.Item label={"Name"} hasFeedback>
                 {getFieldDecorator("ownerName", {
                   rules: transferFormValidationRules["ownerName"],
-                  initialValue: vehicle.ownerName,
-                  preserve: true
+                  initialValue: "",
+                  preserve: true,
                 })(<Input placeholder={"Your Name"} />)}
               </Form.Item>
               <Form.Item label={"F/H/W/O Name"}>
                 {getFieldDecorator("fatherHusbandName", {
                   rules: transferFormValidationRules["fatherHusbandName"],
-                  initialValue: initialValues["fatherHusbandName"]
+                  initialValue: initialValues["fatherHusbandName"],
                 })(<Input placeholder={"Your F/H/W/O Name"} />)}
               </Form.Item>
             </Col>
@@ -133,7 +133,7 @@ const TransferForm = (props: any) => {
               <Form.Item label="Tax Payer Category" hasFeedback>
                 {getFieldDecorator("taxpayerType", {
                   rules: transferFormValidationRules["taxpayerType"],
-                  initialValue: initialValues["taxpayerType"]
+                  initialValue: initialValues["taxpayerType"],
                 })(
                   <Select placeholder="Select Tax Payer Category">
                     <Option value="FILER">FILER</Option>
@@ -148,14 +148,14 @@ const TransferForm = (props: any) => {
                     <Form.Item>
                       {getFieldDecorator("contactNumber", {
                         rules: transferFormValidationRules["contactNumber"],
-                        initialValue: initialValues["contactNumber"]
+                        initialValue: initialValues["contactNumber"],
                       })(<Input placeholder={"Mobile No"} />)}
                     </Form.Item>
                   </Col>
                   <Col xs={24} sm={12}>
                     <Form.Item>
                       {getFieldDecorator("otherContactNumber", {
-                        initialValue: initialValues["otherContactNumber"]
+                        initialValue: initialValues["otherContactNumber"],
                       })(<Input placeholder={"Other Contact Number"} />)}
                     </Form.Item>
                   </Col>
@@ -164,20 +164,20 @@ const TransferForm = (props: any) => {
 
               <Form.Item label="Present Address">
                 {getFieldDecorator("presentAddress", {
-                  initialValue: initialValues["presentAddress"]
+                  initialValue: initialValues["presentAddress"],
                 })(<Input.TextArea placeholder="Present address" />)}
                 <Row gutter={24}>
                   <Col xs={24} sm={12}>
                     <Form.Item>
                       {getFieldDecorator("presentAddressCity", {
-                        initialValue: initialValues["presentAddressCity"]
+                        initialValue: initialValues["presentAddressCity"],
                       })(<Input placeholder={"City"} />)}
                     </Form.Item>
                   </Col>
                   <Col xs={24} sm={12}>
                     <Form.Item>
                       {getFieldDecorator("presentAddressDistrict", {
-                        initialValue: initialValues["presentAddressDistrict"]
+                        initialValue: initialValues["presentAddressDistrict"],
                       })(
                         <Select showSearch placeholder="Select District">
                           {districtsOptions}
@@ -190,13 +190,13 @@ const TransferForm = (props: any) => {
 
               <Form.Item label="Permanent Address">
                 {getFieldDecorator("permanentAddress", {
-                  initialValue: initialValues["permanentAddress"]
+                  initialValue: initialValues["permanentAddress"],
                 })(<Input.TextArea placeholder="Permanent Address" />)}
                 <Row gutter={24}>
                   <Col xs={24} sm={12}>
                     <Form.Item>
                       {getFieldDecorator("permanentAddressCity", {
-                        initialValue: initialValues["permanentAddressCity"]
+                        initialValue: initialValues["permanentAddressCity"],
                       })(<Input placeholder={"City"} />)}
                     </Form.Item>
                   </Col>
@@ -207,7 +207,7 @@ const TransferForm = (props: any) => {
                           transferFormValidationRules[
                             "permanentAddressDistrict"
                           ],
-                        initialValue: initialValues["permanentAddressDistrict"]
+                        initialValue: initialValues["permanentAddressDistrict"],
                       })(
                         <Select showSearch placeholder="Select District">
                           {districtsOptions}
@@ -250,21 +250,21 @@ const TransferForm = (props: any) => {
               >
                 {getFieldDecorator("representativeCnic", {
                   initialValue: initialValues["representativeCnic"],
-                  rules: transferFormValidationRules["representativeCnic"]
+                  rules: transferFormValidationRules["representativeCnic"],
                 })(<Input placeholder={"i-e 1120188007493"} />)}
               </Form.Item>
 
               <Form.Item label={"Name"} hasFeedback>
                 {getFieldDecorator("representativeName", {
                   initialValue: initialValues["representativeName"],
-                  rules: transferFormValidationRules["representativeName"]
+                  rules: transferFormValidationRules["representativeName"],
                 })(<Input placeholder={"Representative Name"} />)}
               </Form.Item>
 
               <Form.Item label={"F/H Name."} hasFeedback>
                 {getFieldDecorator("representativeFName", {
                   initialValue: initialValues["representativeFName"],
-                  rules: transferFormValidationRules["representativeFName"]
+                  rules: transferFormValidationRules["representativeFName"],
                 })(
                   <Input placeholder={"Representative Father/Husband Name"} />
                 )}
@@ -273,7 +273,7 @@ const TransferForm = (props: any) => {
               <Form.Item label={"Mobile."} hasFeedback>
                 {getFieldDecorator("representativeMobile", {
                   initialValue: initialValues["representativeMobile"],
-                  rules: transferFormValidationRules["representativeMobile"]
+                  rules: transferFormValidationRules["representativeMobile"],
                 })(<Input placeholder={"Mobile No i-e 9999999999999"} />)}
               </Form.Item>
             </Card>
@@ -293,14 +293,15 @@ const TransferForm = (props: any) => {
             >
               <Form.Item label={"Bank/Company Name."} hasFeedback>
                 {getFieldDecorator("vehicleHirePurchaseParty", {
-                  rules: transferFormValidationRules["vehicleHirePurchaseParty"]
+                  rules:
+                    transferFormValidationRules["vehicleHirePurchaseParty"],
                 })(<Input placeholder={"Bank/Company Name"} />)}
               </Form.Item>
 
               <Form.Item label={"Hire Purchase Agreement."}>
                 {getFieldDecorator("vehicleHirePurchaseAgreement", {
                   rules:
-                    transferFormValidationRules["vehicleHirePurchaseAgreement"]
+                    transferFormValidationRules["vehicleHirePurchaseAgreement"],
                 })(<Switch />)}
               </Form.Item>
             </Card>

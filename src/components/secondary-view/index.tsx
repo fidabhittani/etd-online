@@ -13,9 +13,9 @@ const SecondaryView = ({ children }: any) => {
       {(messages || []).map((message: any) => (
         <Alert
           key={message.Id}
-          message={`${
-            message.status ? message.status + ":" : ""
-          }  ${message.devMessage || message.userMessage}`}
+          message={`${message.status ? message.status + ":" : ""}  ${
+            message.devMessage || message.userMessage
+          }`}
           showIcon
           closable
           type={message.type || "info"}
