@@ -146,6 +146,10 @@ export const transferFormValidationRules = {
       required,
       message: "Rep CNIC is Required",
     },
+    {
+      len: 13,
+      message: `${fieldsMeta["cnic"].label} should be exactly 13 characters`,
+    },
   ],
   representativeMobile: [],
   representativeName: [
