@@ -10,6 +10,8 @@ const CheckVehicle = (props: any): any => {
   const { getVehicle: loading = { status: false } } = useSelector(
     ({ app }: any) => app.loading
   );
+  // const appData = useSelector(({ data }: any) => data.app);
+
   const { getFieldDecorator } = props.form;
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const CheckVehicle = (props: any): any => {
         dispatch(
           getVeh({
             ...values,
-            registrationDate: values.registrationDate.format("DD-MM-YYYY")
+            registrationDate: values.registrationDate.format("DD-MM-YYYY"),
           })
         );
       }
@@ -31,7 +33,7 @@ const CheckVehicle = (props: any): any => {
         <Col span={6} xs={24} sm={10} md={8} lg={6}>
           <Form.Item label="Registration No">
             {getFieldDecorator("registrationNo", {
-              rules: transferFormValidationRules["registrationNo"]
+              rules: transferFormValidationRules["registrationNo"],
             })(
               <Input
                 allowClear
@@ -45,7 +47,7 @@ const CheckVehicle = (props: any): any => {
         <Col span={6} xs={24} sm={9} md={8} lg={6}>
           <Form.Item label="Registration Date">
             {getFieldDecorator("registrationDate", {
-              rules: transferFormValidationRules["registrationDate"]
+              rules: transferFormValidationRules["registrationDate"],
             })(<DatePicker style={{ width: "100%" }} format={"DD-MM-YYYY"} />)}
           </Form.Item>
         </Col>

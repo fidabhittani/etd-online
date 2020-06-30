@@ -2,7 +2,8 @@ import {
   SET_VEH,
   SET_TRANSFER,
   SET_TMESLOTS,
-  UPDATE_TRANSFER
+  UPDATE_TRANSFER,
+  SET_APP,
 } from "config/constants";
 import { IAction } from "config/types";
 
@@ -10,34 +11,41 @@ import { IAction } from "config/types";
 export const initialState = {
   vehicle: {},
   transfer: {},
-  timeslots: []
+  timeslots: [],
+  app: {},
 };
 
 export default (state: any = initialState, action: IAction) => {
   const { type, payload } = action;
   switch (type) {
+    case SET_APP:
+      return {
+        ...state,
+        app: payload,
+      };
+
     case SET_VEH:
       return {
         ...state,
-        vehicle: payload
+        vehicle: payload,
       };
     case SET_TRANSFER:
       return {
         ...state,
-        transfer: payload
+        transfer: payload,
       };
     case SET_TMESLOTS:
       return {
         ...state,
-        timeslots: payload || []
+        timeslots: payload || [],
       };
     case UPDATE_TRANSFER:
       return {
         ...state,
         transfer: {
           ...state.transfer,
-          ...payload
-        }
+          ...payload,
+        },
       };
     default:
       return state;

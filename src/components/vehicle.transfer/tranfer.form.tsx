@@ -1,5 +1,8 @@
 import React from "react";
-import { transferFormValidationRules, initialValues } from "config/rules";
+import {
+  transferFormValidationRules,
+  initialValues as defaultValues,
+} from "config/rules";
 import { districts } from "utils/lookups";
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
@@ -25,6 +28,9 @@ const { Option } = Select;
 const TransferForm = (props: any) => {
   const { getFieldDecorator } = props.form;
   const appLoading = useSelector(({ app }: any) => app.loading.app);
+  const appData = useSelector(({ data }: any) => data.app);
+
+  const initialValues = { ...defaultValues, ...appData };
 
   const dispatch = useDispatch();
   const vehicle = useSelector((state: any) => state.data.vehicle);
@@ -68,6 +74,7 @@ const TransferForm = (props: any) => {
               <Form.Item label="Owner Type" hasFeedback>
                 {getFieldDecorator("ownerType", {
                   rules: transferFormValidationRules["ownerType"],
+                  initialValue: initialValues["ownerType"],
                 })(
                   <Select placeholder="Select Owner type">
                     <Option value="INDIVIDUAL">INDIVIDUAL</Option>
@@ -118,7 +125,7 @@ const TransferForm = (props: any) => {
               <Form.Item label={"Name"} hasFeedback>
                 {getFieldDecorator("ownerName", {
                   rules: transferFormValidationRules["ownerName"],
-                  initialValue: "",
+                  initialValue: initialValues["ownerName"],
                   preserve: true,
                 })(<Input placeholder={"Your Name"} />)}
               </Form.Item>
@@ -302,7 +309,13 @@ const TransferForm = (props: any) => {
                 {getFieldDecorator("vehicleHirePurchaseAgreement", {
                   rules:
                     transferFormValidationRules["vehicleHirePurchaseAgreement"],
-                })(<Switch />)}
+                })(
+                  <Switch
+                    defaultChecked={
+                      initialValues["vehicleHirePurchaseAgreement"]
+                    }
+                  />
+                )}
               </Form.Item>
             </Card>
           </Col>

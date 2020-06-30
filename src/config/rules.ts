@@ -76,7 +76,16 @@ const fieldsMeta = {
   },
 };
 
+export const fieldsList = Object.keys(fieldsMeta);
+
 export const transferFormValidationRules = {
+  computerId: [
+    {
+      required,
+      message: "ComputerId is required",
+    },
+  ],
+
   ownerType: [
     {
       required,
@@ -131,7 +140,7 @@ export const transferFormValidationRules = {
   registrationNo: [
     {
       required: true,
-      message: "Please input your registration no!",
+      message: "Registration no is required!",
     },
   ],
   registrationDate: [
@@ -168,7 +177,9 @@ export const initialValues = {
   ntn: activateInitValues ? "7677332" : null,
   cnic: activateInitValues ? "1120188007492" : null,
   passport: activateInitValues ? "DS-20192" : null,
-  fatherHusbandName: activateInitValues ? "ABDUL HAMID" : null,
+  fatherHusbandName: activateInitValues
+    ? "ABDUL HAMID" + (Math.random() * 1000).toFixed()
+    : null,
   contactNumber: activateInitValues ? "123123" : null,
   otherContactNumber: activateInitValues ? "123123" : null,
   presentAddress: activateInitValues ? "G13, Islamabad" : null,
@@ -182,4 +193,6 @@ export const initialValues = {
   representativeMobile: activateInitValues ? "3210323" : null,
   representativeName: activateInitValues ? "Ali" : null,
   representativeFName: activateInitValues ? "Khan" : null,
+  ownerName: activateInitValues ? "Fida BHittani" : null,
+  vehicleHirePurchaseAgreement: activateInitValues ? true : false,
 };

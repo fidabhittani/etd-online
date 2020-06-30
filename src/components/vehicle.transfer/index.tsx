@@ -69,11 +69,12 @@ const VehicleTransfer = () => {
             </Descriptions>
 
             <br />
-            {transfer.id ? (
+            {transfer.id && (
               <React.Fragment>
                 <Row gutter={24}>
                   <Col sm={24} md={24}>
                     <Alert
+                      closable
                       showIcon
                       message={`YOUR APPLICATION'S COMPUTER NUMBER IS: ${transfer.id}`}
                       description={`${apptimeMessage}`}
@@ -91,9 +92,9 @@ const VehicleTransfer = () => {
                   )}
                 </Row>
               </React.Fragment>
-            ) : (
-              <TransferForm />
             )}
+            <br />
+            <TransferForm />
           </React.Fragment>
         )}
       </div>

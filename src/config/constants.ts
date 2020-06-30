@@ -19,3 +19,4 @@ export const SET_VEH: string = "SET_VEH";
 export const SET_TRANSFER: string = "SET_TRANSFER";
 export const UPDATE_TRANSFER: string = "UPDATE_TRANSFER";
 export const SET_TMESLOTS: string = "SET_TMESLOTS";
+export const SET_APP: string = "SET_APP";

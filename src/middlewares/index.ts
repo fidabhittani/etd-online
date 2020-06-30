@@ -2,10 +2,11 @@ import {
   SET_VEH,
   SET_TRANSFER,
   SET_MESSAGE,
-  SET_TMESLOTS
+  SET_TMESLOTS,
+  SET_APP,
 } from "config/constants";
 import { resetMessage } from "actions";
-
+import { mapAppToTransfree } from "config/utils";
 const transformKeys = (payload: any) => {
   return Object.keys(payload).reduce((tranformedObj: any, key: any) => {
     const newKey = key
@@ -29,11 +30,19 @@ const tranformKeysMiddleware = (store: any) => (next: any) => (action: any) => {
   if ([SET_TRANSFER, SET_VEH].includes(action.type)) {
     action = {
       ...action,
-      payload: transformKeys(action.payload)
+      payload: transformKeys(action.payload),
     };
   }
 
-  if ([SET_TMESLOTS].includes(action.type)) {
+  if ([SET_APP].includes(action.type)) {
+    const camcelCaseMap = transformKeys({ ...action.payload });
+    action = {
+      ...action,
+      payload: mapAppToTransfree(camcelCaseMap),
+    };
+  }
+
+  if ([SET_TMESLOTS].includes(action.type, action.payload)) {
     action = {
       ...action,
       payload:
@@ -43,16 +52,16 @@ const tranformKeysMiddleware = (store: any) => (next: any) => (action: any) => {
           return {
             ...load,
             time: time.trim().toUpperCase(),
-            window
+            window,
           };
-        })
+        }),
     };
   }
 
   if ([SET_MESSAGE].includes(action.type)) {
     setTimeout(() => {
       store.dispatch(resetMessage(action.payload.messageId));
-    }, 5000);
+    }, 10000);
   }
   next(action);
 };

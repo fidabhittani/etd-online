@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import smalllLogo from "assets/images/app/logo-small.png";
-import { Layout, Menu, Affix } from "antd";
-import { Link, withRouter } from "react-router-dom";
+import { Layout, Affix, Popover, Button } from "antd";
+import { withRouter } from "react-router-dom";
 import "./main.less";
+import GetApplication from "./get-app";
+
 interface IMainLayout {
   children?: any;
   title?: string;
@@ -14,35 +16,34 @@ const { Header, Footer, Content } = Layout;
 const MainLayout = ({
   children,
   location = { pathname: "/welcome" },
-  title = "DrugStore 3U"
+  title = "DrugStore 3U",
 }: IMainLayout) => {
-  const [currentRoute, setCurrentRoute] = useState("welcome");
+  const [formVisisble, setFormVisible] = useState(false);
+  // useEffect(() => {
+  //   setCurrentRoute(location.pathname);
+  // }, [location.pathname]);
 
-  useEffect(() => {
-    setCurrentRoute(location.pathname);
-  }, [location.pathname]);
+  // const [, selectedKey] = currentRoute.split("/");
 
-  const [, selectedKey] = currentRoute.split("/");
   return (
     <Layout className="main-conntainer">
       <Affix>
         <Header className="header">
           <div className="app-logo">
-            POST REGISTRATION VEHICLE APPLICATION (CHANGE OF OWNERSHIP) [TRIAL VERSION]
+            POST REGISTRATION VEHICLE APPLICATION (CHANGE OF OWNERSHIP) [TRIAL
+            VERSION]
           </div>
-
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            overflowedIndicator
-            selectedKeys={[selectedKey]}
-            // defaultSelectedKeys={["1"]}
-            style={{ lineHeight: "64px" }}
+          <Popover
+            content={<GetApplication />}
+            title="View/Update Existing Application"
+            trigger="click"
+            visible={formVisisble}
+            onVisibleChange={() => setFormVisible(!formVisisble)}
           >
-            <Menu.Item key="vehicle-transfer">
-              <Link to="/vehicle-transfer">View/ Update Existing Application</Link>
-            </Menu.Item>
-          </Menu>
+            <Button size="large" type="primary">
+              View/ Update Existing Application
+            </Button>
+          </Popover>
         </Header>
       </Affix>
       <Layout
